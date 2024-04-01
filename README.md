@@ -1,4 +1,4 @@
-# NLP_Python_Airline_Customer_Service
+# Tweet Analysis for the Airline Industry using NLP
 
 ## Content of the project
 We are working for the customer service team of a company in the airline industry. Our overarching goal is to benchmark against the competition by analyzing their tweets. We are provided with the dataset (`airline.csv`) and are tasked to answer the following four questions:
