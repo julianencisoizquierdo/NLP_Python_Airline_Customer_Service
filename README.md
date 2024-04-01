@@ -9,25 +9,19 @@ We are working for the customer service team of a company in the airline industr
 
 
 ## Instructions
-The main file used for the analysis is `Startup_Dataset.xlsx`. This workbook contains four worksheets:
-- `COMPANY`: contains information about different companies, including their category, the revenue range, and the employee count
-- `INVESTMENT`: includes information about the financing rounds that companies in the previous sheet have gone through
-- `ACQUISITION`: contains information about the acquisitions completed by some of the firms contained in the sheet COMPANIES
-- `EMPLOYEE`: includes information about the University attended by professionals that work in some of the companies included in the dataset
+The main file used for the analysis is `airline.csv`. It contains the text of the tweet, as well as information about the days in which those tweets were written.
 
 
 ## Rationale and Methodology
 
-
-For Case 1, we are tasked with analyzing the tweets of the competitor in the airline industry. We are provided with the airlines.csv and are asked a series of questions regarding the interactions.
-
-To start off, we did some Exploratory Data Analysis to find out more about the information contained in this file. We realize that:
-The dataset has 1,377 rows.
-There are no repeated instances.
-The interactions took place between the 1st and the 15th of October 2015.
-The text column starts with an @ followed by a username. This must represent the name of the person who wrote a tweet about one of the competitor airlines.
-The text column ends with two capital letters, which most likely represent the initials of the name and surname of the customer service agent that replied to the tweet.
-Sometimes, the text row contains a fraction (eg: 2/2, 3/4, 2/4…) just after the initials of the agent’s initials. After grouping by username and replier, we realize that it means that it has to be combined with other rows in the text column in order to form a full tweet. For example, if a fraction 3/4 is found, it is telling us that this text row has to be combined with three other rows of the text column (two of which precede it, one of which comes after it) in order to see the full tweet.
+### Exploratory Data Analysis
+Findings of the EDA:
+- The dataset has 1,377 rows.
+- There are no repeated instances.
+- The interactions took place between the 1st and the 15th of October 2015.
+- The text column starts with an @ followed by a username. This must represent the name of the person who wrote a tweet about one of the competitor airlines.
+- The text column ends with two capital letters, which most likely represent the initials of the name and surname of the customer service agent that replied to the tweet.
+- Sometimes, the text row contains a fraction (eg: 2/2, 3/4, 2/4…) just after the initials of the agent’s initials. After grouping by username and replier, we realize that it means that it has to be combined with other rows in the text column in order to form a full tweet. For example, if a fraction 3/4 is found, it is telling us that this text row has to be combined with three other rows of the text column (two of which precede it, one of which comes after it) in order to see the full tweet.
 
 
 ### Question 1 - What is the average length of a social customer service reply?
@@ -56,8 +50,6 @@ Replace the pattern '&;' with '&'.
 Now that the text has been cleaned, we can proceed to count its length. After that, we transform the weight column to a float and multiply that by the length of the rows. Finally, we compute an average of the length for the whole dataset. This gives us an average length per reply of 63.3 in terms of characters, and of 11.22 in terms of words.
 
 
-
-
 ### Question 2 - What type of links were referenced most often? URL links, phone numbers or direct messages?
 
 To answer this question, we firstly create a separate dataset (df_q2) that contains the only column we need for the analysis (text).
@@ -79,8 +71,6 @@ Total direct messages references: 201
 Thus, direct messages are referenced the most.
 
 
-
-
 ### Question 3 - How many people should be on a social media customer service team? 
 
 The first step to undertake here is to identify the workers. For that, we need to create a separate column with the initials of the workers. With this in mind, we firstly use .str.extract(r'\*(\w+)'). This extracts any group of characters that follows an asterisk.
@@ -96,8 +86,6 @@ This grouping step will only consider the rows where worker_id is not NA. For th
 We decide to group by date and weekday and to count the unique number of workers that were present each day. As we can see in the table, the number of daily workers varies substantially, from 11 to 20. It seems that Tuesdays and Thursdays tend to employ more people, and that Fridays and Saturdays are less busy. For this reason, we decide to group by weekday and average the worker count found in the first grouping. This reduces the range a bit, from 11.5 to 17.5, and tells us that Tuesdays and Thursdays need indeed more people, whereas Fridays and Saturdays need less.
 
 To sum up, having between 12 and 17 people in a social media customer service team seems to be enough to cover the demand. If it is possible, this number should be adjusted by weekday, given that the amount of work seems to vary from day to day.
-
-
 
 
 ### Question 4 - How many social replies are reasonable for a customer service representative to handle?
