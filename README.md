@@ -106,30 +106,46 @@ To run the analysis, open the `Julian_Enciso_Final_Project.ipynb` notebook and e
 
 ## Dependencies
 
-The following libraries are used in different parts of the project:
-- Pandas
-- Numpy
-- Matplotlib.pyplot
-- Seaborn
-- Geopandas
-- Display
-- Combinations
-- Warnings
-- SettingWithCopyWarning
-
-
-Proceed to their installation with the following code:
+The following libraries are used in different parts of the project. Proceed to their installation with the following code:
 
 ```
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import html
+import math
+import re
+import glob
+import os
+import sys
+import json
+import random
+import pprint as pp
+import textwrap
+import sqlite3
+import logging
+from fractions import Fraction
+
+import spacy
+import nltk
+
 import seaborn as sns
-import geopandas as gpd
-from IPython.display import display
-from itertools import combinations
-import warnings
-from pandas.errors import SettingWithCopyWarning
+sns.set_style("darkgrid")
+
+from tqdm.auto import tqdm
+tqdm.pandas()
+
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+from sklearn.svm import SVC, LinearSVC
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report, ConfusionMatrixDisplay, f1_score, cohen_kappa_score, roc_auc_score, average_precision_score, precision_score, recall_score
+from sklearn.model_selection import cross_val_score, GridSearchCV
+from sklearn.pipeline import Pipeline
+from sklearn.dummy import DummyClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.preprocessing import LabelEncoder
 ```
 
 ## Installation
