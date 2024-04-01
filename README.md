@@ -1,14 +1,11 @@
 # NLP_Python_Airline_Customer_Service
 
-
-
 ## Content of the project
-The purpose of this project is to derive insightful observations from the main dataset (`Startup_Dataset.xlsx`). The questions that I try to answer are:
-1) What are the most successful universities?
-2) Which sectors are the most successful ones?
-3) For how long should I expect to stay private?
-4) What country is more suited for creating a startup?
-5) How much financing am I expected to obtain?
+We are working for the customer service team of a company in the airline industry. Our overarching goal is to benchmark against the competition by analyzing their tweets. We are provided with the dataset (`airline.csv`) and are tasked to answer the following four questions:
+1) What is the average length of a social customer service reply?
+2) What type of links were referenced most often? URL links, phone numbers or direct messages?
+3) How many people should be on a social media customer service team? 
+4) How many social replies are reasonable for a customer service representative to handle?
 
 
 ## Instructions
