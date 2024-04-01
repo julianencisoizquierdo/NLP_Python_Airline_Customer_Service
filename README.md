@@ -1,5 +1,27 @@
 # NLP_Python_Airline_Customer_Service
 
+
+
+## Content of the project
+The purpose of this project is to derive insightful observations from the main dataset (`Startup_Dataset.xlsx`). The questions that I try to answer are:
+1) What are the most successful universities?
+2) Which sectors are the most successful ones?
+3) For how long should I expect to stay private?
+4) What country is more suited for creating a startup?
+5) How much financing am I expected to obtain?
+
+
+## Instructions
+The main file used for the analysis is `Startup_Dataset.xlsx`. This workbook contains four worksheets:
+- `COMPANY`: contains information about different companies, including their category, the revenue range, and the employee count
+- `INVESTMENT`: includes information about the financing rounds that companies in the previous sheet have gone through
+- `ACQUISITION`: contains information about the acquisitions completed by some of the firms contained in the sheet COMPANIES
+- `EMPLOYEE`: includes information about the University attended by professionals that work in some of the companies included in the dataset
+
+
+## Rationale and Methodology
+
+
 For Case 1, we are tasked with analyzing the tweets of the competitor in the airline industry. We are provided with the airlines.csv and are asked a series of questions regarding the interactions.
 
 To start off, we did some Exploratory Data Analysis to find out more about the information contained in this file. We realize that:
@@ -11,7 +33,7 @@ The text column ends with two capital letters, which most likely represent the i
 Sometimes, the text row contains a fraction (eg: 2/2, 3/4, 2/4…) just after the initials of the agent’s initials. After grouping by username and replier, we realize that it means that it has to be combined with other rows in the text column in order to form a full tweet. For example, if a fraction 3/4 is found, it is telling us that this text row has to be combined with three other rows of the text column (two of which precede it, one of which comes after it) in order to see the full tweet.
 
 
-Question 1 - What is the average length of a social customer service reply?
+### Question 1 - What is the average length of a social customer service reply?
 
 To answer this question, our initial idea was to join the messages that have been split, and only after that clean the text and compute the average length. However, this is not only difficult to do (given that we would have to group by username and agent and then try to match the meanings), but also impossible to do for all of the cases. As we will see, there are a few messages that are incomplete.
 
@@ -39,7 +61,7 @@ Now that the text has been cleaned, we can proceed to count its length. After th
 
 
 
-Question 2 - What type of links were referenced most often? URL links, phone numbers or direct messages?
+### Question 2 - What type of links were referenced most often? URL links, phone numbers or direct messages?
 
 To answer this question, we firstly create a separate dataset (df_q2) that contains the only column we need for the analysis (text).
 
@@ -62,7 +84,7 @@ Thus, direct messages are referenced the most.
 
 
 
-Question 3 - How many people should be on a social media customer service team? 
+### Question 3 - How many people should be on a social media customer service team? 
 
 The first step to undertake here is to identify the workers. For that, we need to create a separate column with the initials of the workers. With this in mind, we firstly use .str.extract(r'\*(\w+)'). This extracts any group of characters that follows an asterisk.
 
@@ -81,7 +103,7 @@ To sum up, having between 12 and 17 people in a social media customer service te
 
 
 
-Question 4 - How many social replies are reasonable for a customer service representative to handle?
+### Question 4 - How many social replies are reasonable for a customer service representative to handle?
 
 To answer this question, we wanted to see how many responses every representative is handling on a daily basis, and then group that by worker in order to see the average amount of daily replies that each representative was handling.
 
@@ -90,4 +112,59 @@ After doing this, we noticed that the range of those average daily replies was q
 To add the days_active column we first had to group by worker_ud and count the number of occurrences. We then mapped the days_active to the main dataframe. After filtering it to days_active >= 5, we still obtain very similar results.
 
 Thus, to get more specific, we obtain the mean and the values of the 25th and 75th percentiles, which are 5.69, 4.38 and 7.33 respectively. This tells us that a customer service representative should handle between 5 and 7 social replies.
+
+
+## Usage
+
+To run the analysis, open the `Julian_Enciso_Final_Project.ipynb` notebook and execute each cell sequentially. Ensure that the required datasets are in the correct file paths.
+
+
+## Dependencies
+
+The following libraries are used in different parts of the project:
+- Pandas
+- Numpy
+- Matplotlib.pyplot
+- Seaborn
+- Geopandas
+- Display
+- Combinations
+- Warnings
+- SettingWithCopyWarning
+
+
+Proceed to their installation with the following code:
+
+```
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import geopandas as gpd
+from IPython.display import display
+from itertools import combinations
+import warnings
+from pandas.errors import SettingWithCopyWarning
+```
+
+## Installation
+Ensure that you have Python installed on your system. If not, you can download it from [python.org](https://www.python.org/downloads/).
+
+
+## Usage
+You are allowed to view and fork the repository for personal use. If you have any questions or would like to discuss potential collaborations, feel free to reach out.
+
+
+## Contributing
+Although this project is not open-source, I welcome feedback, bug reports, and suggestions. If you encounter any issues or have ideas for improvements, feel free to send me an email to julian.enciso.izquierdo@gmail.com.
+
+
+## License
+This project is not open-source, and it does not come with a specific open-source license. All rights are reserved, and usage, modification, or distribution of the code is not permitted without explicit permission.
+
+If you are interested in using or collaborating on this project, please send me an email to julian.enciso.izquierdo@gmail.com.
+
+## Acknowledgments
+Special thanks to Jade, Julie, Abir and Aya for their collaboration.
+
 
