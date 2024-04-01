@@ -101,7 +101,7 @@ Thus, to get more specific, we obtain the mean and the values of the 25th and 75
 
 ## Usage
 
-To run the analysis, open the `Julian_Enciso_Final_Project.ipynb` notebook and execute each cell sequentially. Ensure that the required datasets are in the correct file paths.
+To run the analysis, open the `NLP_BI_Airline_Industry.ipynb` notebook and execute each cell sequentially. Ensure that the required datasets are in the correct file paths.
 
 
 ## Dependencies
