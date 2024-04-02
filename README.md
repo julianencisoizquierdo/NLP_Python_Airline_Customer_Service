@@ -165,7 +165,4 @@ This project is not open-source, and it does not come with a specific open-sourc
 
 If you are interested in using or collaborating on this project, please send me an email to julian.enciso.izquierdo@gmail.com.
 
-## Acknowledgments
-Special thanks to Abir and Aya for their collaboration.
-
 
